@@ -1,26 +1,39 @@
-# Express Boilerplate!
+# Job Hunt Simulator 2020 - Developer Edition
 
-This is a boilerplate project used for starting new projects!
+Welcome to the server side repo for JHS 2020, the next big title in the Simulation genre.  So good you'll want to quit your current job just to experience it irl.
 
-## Set up
+Temporary Notes:
 
-Complete the following steps to start a new project (NEW-PROJECT-NAME):
+## Stats we need in database for each character
+### Resources
+* Debt or Funds (-$25,000 to $50,000 win loss conditions)
+* Stress or Happiness (0 to 100, lose time at 0)
+* Connections (0 to 20, 20 wins the game and is the % chance of an interview each week)
+* Caffeine or Energy (0 to 100, lose time at 0)
+* Health (0 to 100, lose the game at 0)
+* Current Week (lose game at 52)
 
-1. Clone this repository to your local machine `git clone BOILERPLATE-URL NEW-PROJECTS-NAME`
-2. `cd` into the cloned repository
-3. Make a fresh start of the git history for this project with `rm -rf .git && git init`
-4. Install the node dependencies `npm install`
-5. Move the example Environment file to `.env` that will be ignored by git and read by the express server `mv example.env .env`
-6. Edit the contents of the `package.json` to use NEW-PROJECT-NAME instead of `"name": "express-boilerplate",`
+### Skills (all 0-10 scale, total of 32 wins the game, sum is your chance to pass an interview)
+* Front End
+* Back End
+* Computer Science
+* Soft Skills
+* Luck
 
-## Scripts
+### Portfolio or Biography
+* Name
+* Avatar
+* Pet Name
+* Pet Avatar
+* Career Path
+* Background
+* Personality
+* Education
+* Bootcamp chosen
+* Projects 
 
-Start the application `npm start`
+## Tables Needed
+* User accounts
+* Characters (big one)
+* Events table
 
-Start nodemon for the application `npm run dev`
-
-Run the tests `npm test`
-
-## Deploying
-
-When your new project is ready for deployment, add a new Heroku application with `heroku create`. This will make a new git remote called "heroku" and you can then `npm run deploy` which will push to this remote's master branch.
