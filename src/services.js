@@ -1,19 +1,39 @@
 require('dotenv').config()
-const knex = require('knex');
-
-const knexInstance = knex({
-  client: 'pg',
-  connection: process.env.DB_URL
-})
 
 const AppService = {
-  getEverything() {
-    for (table of ['accounts', 'characters', 'portfolios', 'skills', 'stats']) {
-      knexInstance(table).select('*')
-        .then(result => {
-          console.log(result)
-        })
-    }
+  getAccounts(db) {
+    return db('accounts').select('*')
+      .then(result => {
+        return result;
+      })
+  },
+
+  getCharacters(db) {
+    return db('characters').select('*')
+      .then(result => {
+        return result;
+      })
+  },
+
+  getPortfolios(db) {
+    return db('portfolios').select('*')
+      .then(result => {
+        return result;
+      })
+  },
+
+  getSkills(db) {
+    return db('skills').select('*')
+      .then(result => {
+        return result;
+      })
+  },
+
+  getStats(db) {
+    return db('stats').select('*')
+      .then(result => {
+        return result;
+      })
   }
 }
 
