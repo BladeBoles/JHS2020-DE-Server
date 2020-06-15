@@ -1,5 +1,5 @@
 module.exports = {
   PORT: process.env.PORT || 8000,
   NODE_ENV: process.env.NODE_ENV || 'development',
-  DB_URL: process.env.DB_URL || 'postgresql://dunder_mifflin@localhost/jobhunt_simulator'
+  DB_URL: process.env.DB_URL || 'postgresql://job_hunter@localhost/jobhunt_simulator'
 };
