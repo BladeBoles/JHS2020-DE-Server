@@ -13,7 +13,6 @@ const AppService = {
       .insert({ account_name })
       .returning('*')
       .then(rows => rows[0])
-
   },
 
   getCharacters(db) {
@@ -23,6 +22,13 @@ const AppService = {
       });
   },
 
+  createCharacter(db, new_character) {
+    return db('characters')
+      .insert({ ...new_character })
+      .returning('*')
+      .then(rows => rows[0])
+  },
+
   getPortfolios(db) {
     return db('portfolios').select('*')
       .then(result => {
@@ -30,11 +36,25 @@ const AppService = {
       });
   },
 
+  createPortfolio(db, new_portfolio) {
+    return db('portfolios')
+      .insert({ ...new_portfolio })
+      .returning('*')
+      .then(rows => rows[0])
+  },
+
   getSkills(db) {
     return db('skills').select('*')
       .then(result => {
         return result;
       });
+  }, 
+
+  createSkills(db, new_skills) {
+    return db('skills')
+      .insert({ ...new_skills })
+      .returning('*')
+      .then(rows => rows[0])
   },
 
   getStats(db) {
@@ -44,7 +64,12 @@ const AppService = {
       });
   }, 
 
-  
+  createStats(db, new_stats) {
+    return db('stats')
+      .insert({ ...new_stats })
+      .returning('*')
+      .then(rows => rows[0])
+  }
 };
 
 module.exports = AppService;
