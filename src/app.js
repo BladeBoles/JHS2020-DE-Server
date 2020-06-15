@@ -5,7 +5,8 @@ const morgan = require('morgan');
 const cors = require('cors');
 const helmet = require('helmet');
 const { NODE_ENV } = require('./config');
-const Service = require('./services')
+const Service = require('./services');
+const Router = require('./router')
 
 const app = express();
 
@@ -17,54 +18,12 @@ app.use(morgan(morganOption));
 app.use(helmet());
 app.use(cors());
 
-app.get('/profiles', (req, res, next) => {
-  const knexInstance = req.app.get('db')
-  Service.getAccounts(knexInstance)
-    .then(result => {
-      res.json(result)
-    })
-    .catch(next)
-})
+app.use('/', Router);
 
-app.get('/characters', (req, res, next) => {
-  const knexInstance = req.app.get('db')
-  Service.getCharacters(knexInstance)
-    .then(result => {
-      res.json(result)
-    })
-    .catch(next)
-})
 
-app.get('/portfolios', (req, res, next) => {
-  const knexInstance = req.app.get('db')
-  Service.getPortfolios(knexInstance)
-    .then(result => {
-      res.json(result)
-    })
-    .catch(next)
-})
-
-app.get('/skills', (req, res, next) => {
-  const knexInstance = req.app.get('db')
-  Service.getSkills(knexInstance)
-    .then(result => {
-      res.json(result)
-    })
-    .catch(next)
-})
-
-app.get('/stats', (req, res, next) => {
-  const knexInstance = req.app.get('db')
-  Service.getStats(knexInstance)
-    .then(result => {
-      res.json(result)
-    })
-    .catch(next)
-})
-
-app.get('/', (req, res) => {
-  res.send('Hello, world!');
-});
+// app.get('/', (req, res) => {
+//   res.send('Hello, world!');
+// });
 
 app.use(function errorHandler(error, req, res, next) {
   let response;
