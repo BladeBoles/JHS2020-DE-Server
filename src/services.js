@@ -12,7 +12,7 @@ const AppService = {
     return db('accounts')
       .insert({ account_name })
       .returning('*')
-      .then(rows => rows[0])
+      .then(rows => rows[0]);
   },
 
   getCharacters(db) {
@@ -26,7 +26,7 @@ const AppService = {
     return db('characters')
       .insert({ ...new_character })
       .returning('*')
-      .then(rows => rows[0])
+      .then(rows => rows[0]);
   },
 
   getPortfolios(db) {
@@ -40,7 +40,7 @@ const AppService = {
     return db('portfolios')
       .insert({ ...new_portfolio })
       .returning('*')
-      .then(rows => rows[0])
+      .then(rows => rows[0]);
   },
 
   getSkills(db) {
@@ -54,7 +54,7 @@ const AppService = {
     return db('skills')
       .insert({ ...new_skills })
       .returning('*')
-      .then(rows => rows[0])
+      .then(rows => rows[0]);
   },
 
   getStats(db) {
@@ -68,7 +68,7 @@ const AppService = {
     return db('stats')
       .insert({ ...new_stats })
       .returning('*')
-      .then(rows => rows[0])
+      .then(rows => rows[0]);
   }
 };
 
