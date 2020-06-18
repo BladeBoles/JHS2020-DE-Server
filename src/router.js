@@ -11,7 +11,7 @@ jobHuntRouter
       .catch(next);
   })
   .post(jsonParser, (req, res, next) => {
-    const { account_name } =  req.body;
+    const account_name =  req.body;
     jobHuntService.createAccount(req.app.get('db'), account_name)
       .then(profiles => res.status(204).json(profiles))
       .catch(next);
@@ -20,26 +20,33 @@ jobHuntRouter
 jobHuntRouter
   .route('/characters')
   .get((req, res, next) => {
-    jobHuntService.getCharacters(req.app.get('db'))
-      .then(characters => res.status(201).json(characters))
+    // letuserLoggedIn = req.body.new_character.character_owner;
+    jobHuntService.getCharacters(req.app.get('db'), userLoggedIn = 1)
+      .then(characters => 
+      {
+        console.log(characters)
+        return res.status(201).json(characters)
+      })
       .catch(next);
   })
   .post(jsonParser, (req, res, next) => {
-    const { new_character } =  req.body;
+    const new_character =  req.body;
     jobHuntService.createCharacter(req.app.get('db'), new_character)
-      .then(character => res.status(204).json(character))
+      .then(character => res.json(character).status(204))
       .catch(next);
   });
 
 jobHuntRouter
   .route('/portfolios')
   .get((req, res, next) => {
-    jobHuntService.getPortfolios(req.app.get('db'))
+    // letuserLoggedIn = req.body.new_portfolio.portfolio_owner;
+    jobHuntService.getPortfolios(req.app.get('db'), userLoggedIn = 1)
       .then(portfolios => res.json(portfolios))
       .catch(next);
   })
   .post(jsonParser, (req, res, next) => {
-    const { new_portfolio } =  req.body;
+    console.log("portfolio req.body: ", req.body)
+    const new_portfolio =  req.body;
     jobHuntService.createPortfolio(req.app.get('db'), new_portfolio)
       .then(portfolio => res.status(204).json(portfolio))
       .catch(next);
@@ -48,12 +55,13 @@ jobHuntRouter
 jobHuntRouter
   .route('/skills')
   .get((req, res, next) => {
-    jobHuntService.getSkills(req.app.get('db'))
+    // letuserLoggedIn = req.body.new_skills.skills_owner;
+    jobHuntService.getSkills(req.app.get('db'), userLoggedIn = 1)
       .then(skills => res.json(skills))
       .catch(next);
   })
   .post(jsonParser, (req, res, next) => {
-    const { new_skills } =  req.body;
+    const new_skills =  req.body;
     jobHuntService.createSkills(req.app.get('db'), new_skills)
       .then(skills => res.status(204).json(skills))
       .catch(next);
@@ -62,12 +70,13 @@ jobHuntRouter
 jobHuntRouter
   .route('/stats')
   .get((req, res, next) => {
-    jobHuntService.getStats(req.app.get('db'))
+    // letuserLoggedIn = req.body.new_stats.stats_owner;
+    jobHuntService.getStats(req.app.get('db'), userLoggedIn = 1)
       .then(stats => res.json(stats))
       .catch(next);
   })
   .post(jsonParser, (req, res, next) => {
-    const { new_stats } =  req.body;
+    const new_stats =  req.body;
     jobHuntService.createStats(req.app.get('db'), new_stats)
       .then(stats => res.status(204).json(stats))
       .catch(next);

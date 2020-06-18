@@ -15,8 +15,8 @@ const AppService = {
       .then(rows => rows[0]);
   },
 
-  getCharacters(db) {
-    return db('characters').select('*')
+  getCharacters(db, userLoggedIn) {
+    return db('characters').select('*').where({ character_owner: userLoggedIn })
       .then(result => {
         return result;
       });
@@ -29,8 +29,8 @@ const AppService = {
       .then(rows => rows[0]);
   },
 
-  getPortfolios(db) {
-    return db('portfolios').select('*')
+  getPortfolios(db, userLoggedIn) {
+    return db('portfolios').select('*').where({ portfolio_owner: userLoggedIn })
       .then(result => {
         return result;
       });
@@ -43,8 +43,8 @@ const AppService = {
       .then(rows => rows[0]);
   },
 
-  getSkills(db) {
-    return db('skills').select('*')
+  getSkills(db, userLoggedIn) {
+    return db('skills').select('*').where({ skills_owner: userLoggedIn })
       .then(result => {
         return result;
       });
@@ -57,8 +57,8 @@ const AppService = {
       .then(rows => rows[0]);
   },
 
-  getStats(db) {
-    return db('stats').select('*')
+  getStats(db, userLoggedIn) {
+    return db('stats').select('*').where({ stats_owner: userLoggedIn })
       .then(result => {
         return result;
       });

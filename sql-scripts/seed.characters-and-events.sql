@@ -24,21 +24,22 @@ BEGIN;
 
 INSERT INTO portfolios
   (
-    portfolio_owner, career_path, background, personality,
-    education, bootcamp, project_1_name, project_1_description,
-    project_1_image, project_2_name, project_2_description,
+    portfolio_owner, career_path, background, left_job, 
+    personality, education, bootcamp, project_1_name, 
+    project_1_description, project_1_image, 
+    project_2_name, project_2_description, 
     project_2_image
   )
 
 VALUES
   (
-    1, 'Front End', 'Fast Food', 'Basic',
+    1, 'Front End', 'Fast Food', '2 Weeks', 'Basic',
     'Basketweaving', 'Scam', 'Meme Generator 9001', 'Breaking scouters',
     'https://www.placecage.com/200/200', 'TODO-a11y', 'not another todo app.',
     'https://www.placecage.com/250/250'
   ),
   (
-    2, 'Back End', 'Starving Artist', 'Nerdy',
+    2, 'Back End', 'Starving Artist', 'Rage Quit', 'Nerdy',
     'Art', 'Good', 'Meme Generator 9002', 'Breaking scooters',
     'https://www.placecage.com/225/225', 'TODO-a12y', 'yep yep yep.',
     'https://www.placecage.com/350/350'
